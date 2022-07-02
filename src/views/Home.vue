@@ -1,16 +1,19 @@
 <template>
   <div class="home">
-    <hello-world :projects="projects" :users="users" />
+    <projects-list :projects="projects"></projects-list>
+    <users-list :users="users"></users-list>
   </div>
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld.vue'
+import UsersList from '@/components/UsersList.vue'
+import ProjectsList from '@/components/ProjectsList.vue'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld,
+    UsersList,
+    ProjectsList,
   },
   data() {
     return {

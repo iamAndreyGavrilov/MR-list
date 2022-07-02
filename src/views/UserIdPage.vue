@@ -1,6 +1,7 @@
 <template>
   <div>
     <user-list />
+    <p>user id page</p>
   </div>
 </template>
 
