@@ -13,6 +13,8 @@
       <button @click="$router.push(`/users/${user.id}`)">Открыть</button>
     </div>
   </div>
+
+  <div></div>
 </template>
 
 <script>
