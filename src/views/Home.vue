@@ -2,18 +2,21 @@
   <div class="home">
     <projects-list :projects="projects"></projects-list>
     <users-list :users="users"></users-list>
+    <merge-list :mergeRequests="mergeRequests"></merge-list>
   </div>
 </template>
 
 <script>
 import UsersList from '@/components/UsersList.vue'
 import ProjectsList from '@/components/ProjectsList.vue'
+import MergeList from '@/components/MergeList.vue'
 
 export default {
   name: 'Home',
   components: {
     UsersList,
     ProjectsList,
+    MergeList,
   },
   data() {
     return {
