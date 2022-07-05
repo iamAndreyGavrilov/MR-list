@@ -5,7 +5,9 @@
   <!-- <p>{{ users }}</p> -->
   <!-- <p>{{ mergeRequests }}</p> -->
   <!-- <p>{{ mergeRequest }}</p> -->
-  <p>{{ mr }}</p>
+  <!-- <p>{{ mrLike }}</p> -->
+  <p>{{ user.name }} лайкнул:</p>
+  <p v-for="m in mrLike" :key="m.id">{{ m.title }}</p>
 
   <!-- <p v-for="mr in mergeRequests" :key="mr.id">{{ mr.title }} {{ mr.id }}</p> -->
 </template>
@@ -39,7 +41,7 @@ export default {
       })
     },
 
-    mr() {
+    mrLike() {
       return this.mergeRequests.filter((mere) => {
         return mere.liked.includes(this.user.id)
       })
