@@ -2,19 +2,24 @@
   <h1>Страница пользователя с ID = {{ $route.params.id }}</h1>
   <p>Страница пользователя {{ user.name }}</p>
 
-  <p>1 - {{ mr }}</p>
-  <p>2 - {{ mr2 }}</p>
-  <p>3 - {{ mergeRequestId }}</p>
+  <!-- <p>{{ users }}</p> -->
+  <!-- <p>{{ mergeRequests }}</p> -->
+  <!-- <p>{{ mergeRequest }}</p> -->
+  <p>{{ mr }}</p>
+
+  <!-- <p v-for="mr in mergeRequests" :key="mr.id">{{ mr.title }} {{ mr.id }}</p> -->
 </template>
 
 <script>
 export default {
   data() {
     return {
-      mergeRequestId: [],
+      // mergeRequest: [],
     }
   },
-  methods: {},
+  methods: {
+    // foo() {},
+  },
   //mergeRequests filter includes
   props: {
     users: {
@@ -24,28 +29,37 @@ export default {
       type: Array,
     },
   },
-  mounted() {},
+  mounted() {
+    // this.foo()
+  },
   computed: {
     user() {
       return this.users.find((user) => {
         return user.id === Number(this.$route.params.id)
       })
     },
+
     mr() {
-      return this.mergeRequests.map((mr) => {
-        return mr.liked.filter((like) => {
-          return like === this.user.id
-        })
+      return this.mergeRequests.filter((mere) => {
+        return mere.liked.includes(this.user.id)
       })
     },
 
-    mr2() {
-      return this.mergeRequests.forEach((mr) => {
-        return this.mergeRequestId.push(mr.liked.filter((like) => {
-          return like === this.user.id
-        }))
-      })
-    },
+    // mr() {
+    //   return this.mergeRequests.map((mr) => {
+    //     return mr.liked.filter((like) => {
+    //       return like === this.user.id
+    //     })
+    //   })
+    // },
+
+    // mr2() {
+    //   return this.mergeRequests.forEach((mr) => {
+    //     return this.mergeRequestId.push(mr.liked.filter((like) => {
+    //       return like === this.user.id
+    //     }))
+    //   })
+    // },
   },
 }
 </script>

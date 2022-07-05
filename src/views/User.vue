@@ -1,7 +1,6 @@
 <template>
   <div>
     <user-page :users="users" :mergeRequests="mergeRequests" />
-    <p>user id page</p>
   </div>
 </template>
 
