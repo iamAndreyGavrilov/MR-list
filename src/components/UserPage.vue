@@ -5,7 +5,7 @@
 
   <p v-for="mr in noLikeMr" :key="mr.id">{{ mr.title }}</p>
 
-  <p>{{ noLikeMr }}</p>
+  <!-- <p>{{ noLikeMr }}</p> -->
 </template>
 
 <script>
@@ -14,11 +14,11 @@ export default {
     return {}
   },
   methods: {
-    projName(){
+    projName() {
       if (this.projId === this.mrProjectId) {
         //
       }
-    }
+    },
   },
 
   props: {
@@ -48,17 +48,17 @@ export default {
       })
     },
 
-    projId() {
-      return this.projects.flatMap((proj) => {
-        return proj.id
-      })
-    },
+    // projId() {
+    //   return this.projects.flatMap((proj) => {
+    //     return proj.id
+    //   })
+    // },
 
-    mrProjectId() {
-      return this.mergeRequests.flatMap((mr) => {
-        return mr.projectId
-      })
-    },
+    // mrProjectId() {
+    //   return this.mergeRequests.flatMap((mr) => {
+    //     return mr.projectId
+    //   })
+    // },
   },
 }
 </script>
