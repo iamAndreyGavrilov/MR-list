@@ -1,6 +1,10 @@
 <template>
   <div>
-    <user-page :users="users" :mergeRequests="mergeRequests" />
+    <user-page
+      :projects="projects"
+      :users="users"
+      :mergeRequests="mergeRequests"
+    />
   </div>
 </template>
 
@@ -14,6 +18,12 @@ export default {
   },
   data() {
     return {
+      projects: [
+        { id: 1, name: 'Super Pipka' },
+        { id: 2, name: 'Super Bobka' },
+        { id: 3, name: 'Super Dopka' },
+      ],
+
       users: [
         {
           id: 1,
@@ -30,28 +40,28 @@ export default {
       ],
       mergeRequests: [
         {
-          title: 'Название Merge request 1',
+          title: 'Название Merge request 1 / projectId: 1',
           id: 1,
           projectId: 1,
           reviewers: [1, 2, 3],
           liked: [1, 3],
         },
         {
-          title: 'Название Merge request 2',
+          title: 'Название Merge request 2 / projectId: 2',
           id: 2,
           projectId: 2,
           reviewers: [1, 2, 3],
           liked: [1],
         },
         {
-          title: 'Название Merge request 3',
+          title: 'Название Merge request 3 / projectId: 3',
           id: 3,
           projectId: 3,
           reviewers: [1, 2, 3],
           liked: [3],
         },
         {
-          title: 'Название Merge request 4',
+          title: 'Название Merge request 4 / projectId: 1',
           id: 4,
           projectId: 1,
           reviewers: [1, 2, 3],
