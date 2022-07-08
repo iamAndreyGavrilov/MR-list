@@ -40,28 +40,28 @@ export default {
       ],
       mergeRequests: [
         {
-          title: 'Название Merge request 1 / projectId: 1',
+          title: 'Название Merge request 1',
           id: 1,
           projectId: 1,
           reviewers: [1, 2, 3],
           liked: [1, 3],
         },
         {
-          title: 'Название Merge request 2 / projectId: 2',
+          title: 'Название Merge request 2',
           id: 2,
           projectId: 2,
           reviewers: [1, 2, 3],
           liked: [1],
         },
         {
-          title: 'Название Merge request 3 / projectId: 3',
+          title: 'Название Merge request 3',
           id: 3,
           projectId: 3,
           reviewers: [1, 2, 3],
           liked: [3],
         },
         {
-          title: 'Название Merge request 4 / projectId: 1',
+          title: 'Название Merge request 4',
           id: 4,
           projectId: 1,
           reviewers: [1, 2, 3],

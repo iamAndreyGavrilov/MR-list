@@ -5,13 +5,17 @@
 
   <p v-for="mr in noLikeMr" :key="mr.id">{{ mr.title }}</p>
 
-  <p>{{ res }}</p>
+  <p>В проектах</p>
+
+  <p v-for="r in res1" :key="r.id">{{ r.name }}</p>
 </template>
 
 <script>
 export default {
   data() {
-    return {}
+    return {
+      res1: [],
+    }
   },
   methods: {
     projName() {
@@ -19,11 +23,9 @@ export default {
         const currentId = this.projects.filter(
           (item1) => item1['id'] === item2['projectId']
         )
-        console.log(currentId)
         return currentId
       })
-      console.log(res)
-      return res
+      return this.res1.push(...res)
     },
   },
 
