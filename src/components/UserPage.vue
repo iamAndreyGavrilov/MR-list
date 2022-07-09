@@ -1,13 +1,15 @@
 <template>
   <h1>Страница пользователя {{ user.name }} с ID = {{ $route.params.id }}</h1>
+  <p>В проектах</p>
 
+  <p v-for="r in res1" :key="r.id">{{ r.name }}</p>
   <p>{{ user.name }} не лайкнул:</p>
 
   <p v-for="mr in noLikeMr" :key="mr.id">{{ mr.title }}</p>
 
-  <p>В проектах</p>
-
-  <p v-for="r in res1" :key="r.id">{{ r.name }}</p>
+  <p>1 {{ res1 }}</p>
+  <p>2 {{ noLikeMr }}</p>
+  <p>3 {{ res2 }}</p>
 </template>
 
 <script>
@@ -15,17 +17,20 @@ export default {
   data() {
     return {
       res1: [],
+      res2: [],
     }
   },
   methods: {
-    projName() {
-      const res = this.noLikeMr.flatMap((item2) => {
-        const currentId = this.projects.filter(
+    projNames() {
+      const arrProjectsNames = this.noLikeMr.flatMap((item2) => {
+        const currentProjectId = this.projects.filter(
           (item1) => item1['id'] === item2['projectId']
         )
-        return currentId
+        // console.log(currentProjectId)
+        return currentProjectId
       })
-      return this.res1.push(...res)
+      // console.log(arrProjectsNames)
+      return this.res1.push(...arrProjectsNames)
     },
   },
 
@@ -42,7 +47,7 @@ export default {
   },
 
   mounted() {
-    this.projName()
+    this.projNames()
   },
 
   computed: {
