@@ -1,23 +1,19 @@
 <template>
   <h1>Страница пользователя {{ user.name }} с ID = {{ $route.params.id }}</h1>
+
   <p>В проектах</p>
+  <p v-for="r in userProjects" :key="r.id">{{ r.name }}</p>
 
-  <p v-for="r in res1" :key="r.id">{{ r.name }}</p>
   <p>{{ user.name }} не лайкнул:</p>
-
   <p v-for="mr in noLikeMr" :key="mr.id">{{ mr.title }}</p>
-
-  <p>1 {{ res1 }}</p>
-  <p>2 {{ noLikeMr }}</p>
-  <p>3 {{ res2 }}</p>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      res1: [],
-      res2: [],
+      userProjects: [],
+      // projMrs: [],
     }
   },
   methods: {
@@ -30,7 +26,7 @@ export default {
         return currentProjectId
       })
       // console.log(arrProjectsNames)
-      return this.res1.push(...arrProjectsNames)
+      return this.userProjects.push(...arrProjectsNames)
     },
   },
 
@@ -62,18 +58,6 @@ export default {
         return !mere.liked.includes(this.user.id)
       })
     },
-
-    // projId() {
-    //   return this.projects.flatMap((proj) => {
-    //     return proj.id
-    //   })
-    // },
-
-    // mrProjectId() {
-    //   return this.mergeRequests.flatMap((mr) => {
-    //     return mr.projectId
-    //   })
-    // },
   },
 }
 </script>
