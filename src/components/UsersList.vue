@@ -1,15 +1,19 @@
 <template>
   <div>
     <p>Список всех пользователей</p>
-    <div class="users" v-for="user in users" :key="user.id" :user="user">
-      <strong>{{ user.name }}</strong>
-      <button @click="$router.push(`/users/${user.id}`)">Открыть</button>
-    </div>
+    <user-item
+      class="users"
+      v-for="user in users"
+      :key="user.id"
+      :user="user"
+    />
   </div>
 </template>
 
 <script>
+import UserItem from './UserItem.vue'
 export default {
+  components: { UserItem },
   props: {
     users: {
       type: Array,
