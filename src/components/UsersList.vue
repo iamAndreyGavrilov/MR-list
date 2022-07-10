@@ -1,9 +1,8 @@
 <template>
   <div>
-    <p>Список пользователей</p>
+    <p>Список всех пользователей</p>
     <div class="users" v-for="user in users" :key="user.id" :user="user">
       <strong>{{ user.name }}</strong>
-
       <button @click="$router.push(`/users/${user.id}`)">Открыть</button>
     </div>
   </div>

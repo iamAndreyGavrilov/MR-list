@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Список MR</p>
+    <p>Список всех MR</p>
     <div
       class="mergeRequest"
       v-for="mergeRequest in mergeRequests"

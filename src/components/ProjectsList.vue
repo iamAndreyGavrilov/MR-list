@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Список проектов</p>
+    <p>Список всех проектов</p>
     <div class="projects" v-for="project in projects" :key="project.id">
       <strong>{{ project.name }}</strong>
     </div>
