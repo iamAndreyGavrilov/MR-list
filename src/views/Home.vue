@@ -1,8 +1,11 @@
 <template>
   <div class="home">
-    <projects-list :projects="projects"></projects-list>
+    <div class="home__list">
+      <projects-list :projects="projects"></projects-list>
+      <merge-list :mergeRequests="mergeRequests"></merge-list>
+    </div>
+
     <users-list :users="users"></users-list>
-    <merge-list :mergeRequests="mergeRequests"></merge-list>
   </div>
 </template>
 
@@ -73,3 +76,9 @@ export default {
   },
 }
 </script>
+<style>
+.home__list {
+  display: flex;
+  justify-content: space-around;
+}
+</style>
