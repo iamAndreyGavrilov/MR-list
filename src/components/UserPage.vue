@@ -1,11 +1,15 @@
 <template>
   <h1>Страница пользователя {{ user.name }} с ID = {{ $route.params.id }}</h1>
-
-  <p>В проектах</p>
-  <p v-for="r in userProjects" :key="r.id">{{ r.name }}</p>
-
-  <p>{{ user.name }} не лайкнул:</p>
-  <p v-for="mr in noLikeMr" :key="mr.id">{{ mr.title }}</p>
+  <div class="page">
+    <div>
+      <p>В проектах</p>
+      <p v-for="r in userProjects" :key="r.id">{{ r.name }}</p>
+    </div>
+    <div>
+      <p>{{ user.name }} не лайкнул:</p>
+      <p v-for="mr in noLikeMr" :key="mr.id">{{ mr.title }}</p>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -62,4 +66,9 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.page {
+  display: flex;
+  justify-content: space-around;
+}
+</style>
