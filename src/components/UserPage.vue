@@ -3,11 +3,16 @@
   <div class="page">
     <div>
       <p>В проектах</p>
-      <p v-for="r in userProjects" :key="r.id">{{ r.name }}</p>
-    </div>
-    <div>
-      <p>{{ user.name }} не лайкнул:</p>
-      <p v-for="mr in noLikeMr" :key="mr.id">{{ mr.title }}</p>
+      <p v-for="project in userProjects" :key="project.id">
+        {{ project.name }}
+        <span
+          style="display: block"
+          v-for="mr in getMrByProject(project.id)"
+          :key="mr.id"
+        >
+          {{ mr.title }}
+        </span>
+      </p>
     </div>
   </div>
 </template>
@@ -21,24 +26,22 @@ export default {
     };
   },
   methods: {
-    getMrByProject(id) {
-      return this.noLikeMr.filter((i) => i.projectId === id);
+    getMrByProject(projectId) {
+      return this.noLikeMrs.filter((mr) => mr.projectId === projectId);
     },
 
     projNames() {
-      const arrProjectsNames = this.noLikeMr.flatMap((item2) => {
+      const arrProjectsNames = this.noLikeMrs.flatMap((item2) => {
         const currentProjectId = this.projects.filter(
           (item1) => item1["id"] === item2["projectId"]
         );
-        // console.log(currentProjectId)
         return currentProjectId;
       });
 
-      arrProjectsNames.forEach((i) => {
-        this.getMrByProject(i.id);
-      });
+      // arrProjectsNames.forEach((project) => {
+      //   project.unlikedMRs = this.getMrByProject(project.id);
+      // });
 
-      // console.log(arrProjectsNames)
       return this.userProjects.push(...arrProjectsNames);
     },
   },
@@ -66,11 +69,28 @@ export default {
       });
     },
 
-    noLikeMr() {
+    noLikeMrs() {
       return this.mergeRequests.filter((mere) => {
         return !mere.liked.includes(this.user.id);
       });
     },
+
+    // userProjects2() {
+    //   return this.projects
+    //     .map((project) => {
+    //       const projectUnlikedMRs = this.mergeRequests.filter(
+    //         (mr) =>
+    //           mr.projectId === project.id && !mr.liked.includes(this.user.id)
+    //       );
+    //       if (projectUnlikedMRs.length > 0) {
+    //         return {
+    //           ...project,
+    //           projectUnlikedMRs,
+    //         };
+    //       }
+    //     })
+    //     .filter((project) => project.projectUnlikedMRs.length !== 0);
+    // },
   },
 };
 </script>
