@@ -18,19 +18,28 @@ export default {
     return {
       userProjects: [],
       // projMrs: [],
-    }
+    };
   },
   methods: {
+    getMrByProject(id) {
+      return this.noLikeMr.filter((i) => i.projectId === id);
+    },
+
     projNames() {
       const arrProjectsNames = this.noLikeMr.flatMap((item2) => {
         const currentProjectId = this.projects.filter(
-          (item1) => item1['id'] === item2['projectId']
-        )
+          (item1) => item1["id"] === item2["projectId"]
+        );
         // console.log(currentProjectId)
-        return currentProjectId
-      })
+        return currentProjectId;
+      });
+
+      arrProjectsNames.forEach((i) => {
+        this.getMrByProject(i.id);
+      });
+
       // console.log(arrProjectsNames)
-      return this.userProjects.push(...arrProjectsNames)
+      return this.userProjects.push(...arrProjectsNames);
     },
   },
 
@@ -47,23 +56,23 @@ export default {
   },
 
   mounted() {
-    this.projNames()
+    this.projNames();
   },
 
   computed: {
     user() {
       return this.users.find((user) => {
-        return user.id === Number(this.$route.params.id)
-      })
+        return user.id === Number(this.$route.params.id);
+      });
     },
 
     noLikeMr() {
       return this.mergeRequests.filter((mere) => {
-        return !mere.liked.includes(this.user.id)
-      })
+        return !mere.liked.includes(this.user.id);
+      });
     },
   },
-}
+};
 </script>
 
 <style scoped>
