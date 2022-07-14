@@ -74,23 +74,6 @@ export default {
         return !mere.liked.includes(this.user.id);
       });
     },
-
-    // userProjects2() {
-    //   return this.projects
-    //     .map((project) => {
-    //       const projectUnlikedMRs = this.mergeRequests.filter(
-    //         (mr) =>
-    //           mr.projectId === project.id && !mr.liked.includes(this.user.id)
-    //       );
-    //       if (projectUnlikedMRs.length > 0) {
-    //         return {
-    //           ...project,
-    //           projectUnlikedMRs,
-    //         };
-    //       }
-    //     })
-    //     .filter((project) => project.projectUnlikedMRs.length !== 0);
-    // },
   },
 };
 </script>

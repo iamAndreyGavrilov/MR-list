@@ -10,12 +10,12 @@
 </template>
 
 <script>
-import UsersList from '@/components/UsersList.vue'
-import ProjectsList from '@/components/ProjectsList.vue'
-import MergeList from '@/components/MergeList.vue'
+import UsersList from "@/components/UsersList.vue";
+import ProjectsList from "@/components/ProjectsList.vue";
+import MergeList from "@/components/MergeList.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
     UsersList,
     ProjectsList,
@@ -24,57 +24,57 @@ export default {
   data() {
     return {
       projects: [
-        { id: 1, name: 'Super Pipka 1' },
-        { id: 2, name: 'Super Bobka 2' },
-        { id: 3, name: 'Super Dopka 3' },
+        { id: 1, name: "Super Pipka 1" },
+        { id: 2, name: "Super Bobka 2" },
+        { id: 3, name: "Super Dopka 3" },
       ],
       users: [
         {
           id: 1,
-          name: 'Александр',
+          name: "Александр",
         },
         {
           id: 2,
-          name: 'Алексей',
+          name: "Алексей",
         },
         {
           id: 3,
-          name: 'Павел',
+          name: "Павел",
         },
       ],
       mergeRequests: [
         {
-          title: 'Отличный Merge request 1',
+          title: "Отличный Merge request 1",
           id: 1,
           projectId: 1,
           reviewers: [1, 2, 3],
           liked: [1, 3],
         },
         {
-          title: 'Плохой Merge request 2',
+          title: "Плохой Merge request 2",
           id: 2,
           projectId: 2,
           reviewers: [1, 2, 3],
           liked: [1],
         },
         {
-          title: 'Средний Merge request 3',
+          title: "Средний Merge request 3",
           id: 3,
           projectId: 3,
           reviewers: [1, 2, 3],
           liked: [3],
         },
         {
-          title: 'Пойдет Merge request 4',
+          title: "Пойдет Merge request 4",
           id: 4,
           projectId: 1,
           reviewers: [1, 2, 3],
           liked: [2],
         },
       ],
-    }
+    };
   },
-}
+};
 </script>
 <style>
 .home__list {
