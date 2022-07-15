@@ -42,7 +42,7 @@ export default {
       //   project.unlikedMRs = this.getMrByProject(project.id);
       // });
 
-      return this.userProjects.push(...arrProjectsNames);
+      return this.userProjects.push(...new Set(arrProjectsNames));
     },
   },
 
