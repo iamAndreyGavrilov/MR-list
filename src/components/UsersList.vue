@@ -6,12 +6,15 @@
       v-for="user in users"
       :key="user.id"
       :user="user"
+      :users="users"
+      :projects="projects"
+      :mergeRequests="mergeRequests"
     />
   </div>
 </template>
 
 <script>
-import UserItem from './UserItem.vue'
+import UserItem from "./UserItem.vue";
 export default {
   components: { UserItem },
   props: {
@@ -19,8 +22,14 @@ export default {
       type: Array,
       required: true,
     },
+    mergeRequests: {
+      type: Array,
+    },
+    projects: {
+      type: Array,
+    },
   },
-}
+};
 </script>
 
 <style scoped></style>

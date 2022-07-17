@@ -3,9 +3,9 @@
     <div>
       <strong>{{ user.name }}</strong>
     </div>
-    <div class="btn">
+    <!-- <div class="btn">
       <button @click="$router.push(`/users/${user.id}`)">Открыть</button>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -16,8 +16,18 @@ export default {
       type: Object,
       required: true,
     },
+    users: {
+      type: Array,
+      required: true,
+    },
+    mergeRequests: {
+      type: Array,
+    },
+    projects: {
+      type: Array,
+    },
   },
-}
+};
 </script>
 
 <style scoped>

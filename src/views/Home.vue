@@ -1,11 +1,14 @@
 <template>
   <div class="home">
+    <users-list
+      :users="users"
+      :projects="projects"
+      :mergeRequests="mergeRequests"
+    ></users-list>
     <div class="home__list">
       <projects-list :projects="projects"></projects-list>
       <merge-list :mergeRequests="mergeRequests"></merge-list>
     </div>
-
-    <users-list :users="users"></users-list>
   </div>
 </template>
 

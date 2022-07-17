@@ -1,9 +1,11 @@
 <template>
   <div>
-    <p>Список всех проектов</p>
-    <div class="projects" v-for="project in projects" :key="project.id">
-      <strong>{{ project.name }}</strong>
-    </div>
+    <!-- <div>
+      <p>Список всех проектов</p>
+      <div class="projects" v-for="project in projects" :key="project.id">
+        <strong>{{ project.name }}</strong>
+      </div>
+    </div> -->
   </div>
 </template>
 
@@ -15,7 +17,7 @@ export default {
       required: true,
     },
   },
-}
+};
 </script>
 
 <style scoped></style>
