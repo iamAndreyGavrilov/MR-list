@@ -6,9 +6,13 @@
     <!-- <div class="btn">
       <button @click="$router.push(`/users/${user.id}`)">Открыть</button>
     </div> -->
+    <div class="btn">
+      <button v-show="!openUserInformation" @click="openUser">Открыть</button>
+      <button v-show="openUserInformation" @click="openUser">Закрыть</button>
+    </div>
   </div>
   <div class="page">
-    <div>
+    <div v-show="openUserInformation">
       <p>В проектах, не просмотрено</p>
       <p v-for="project in userProjects" :key="project.id">
         {{ project.name }}
@@ -29,10 +33,14 @@ export default {
   data() {
     return {
       userProjects: [],
+      openUserInformation: false,
       // projMrs: [],
     };
   },
   methods: {
+    openUser() {
+      this.openUserInformation = !this.openUserInformation;
+    },
     getMrByProject(projectId) {
       return this.noLikeMrs.filter((mr) => mr.projectId === projectId);
     },
@@ -105,5 +113,6 @@ button {
 .page {
   display: flex;
   justify-content: space-around;
+  border: 1px solid #64766a;
 }
 </style>
