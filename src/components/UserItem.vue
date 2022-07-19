@@ -12,19 +12,21 @@
     </div>
   </div>
   <div class="page">
-    <div v-show="openUserInformation">
-      <p>В проектах, не просмотрено</p>
-      <p v-for="project in userProjects" :key="project.id">
-        {{ project.name }}
-        <span
-          style="display: block"
-          v-for="mr in getMrByProject(project.id)"
-          :key="mr.id"
-        >
-          {{ mr.title }}
-        </span>
-      </p>
-    </div>
+    <transition name="slide-fade">
+      <div v-show="openUserInformation">
+        <p>В проектах, не просмотрено</p>
+        <p v-for="project in userProjects" :key="project.id">
+          {{ project.name }}
+          <span
+            style="display: block"
+            v-for="mr in getMrByProject(project.id)"
+            :key="mr.id"
+          >
+            {{ mr.title }}
+          </span>
+        </p>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -114,5 +116,18 @@ button {
   display: flex;
   justify-content: space-around;
   border: 1px solid #64766a;
+}
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateY(20px);
+  opacity: 0;
 }
 </style>
