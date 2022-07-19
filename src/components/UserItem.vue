@@ -11,9 +11,9 @@
       <button v-show="openUserInformation" @click="openUser">Закрыть</button>
     </div>
   </div>
-  <div class="page">
-    <transition name="slide-fade">
-      <div v-show="openUserInformation">
+  <transition name="slide-fade">
+    <div class="page" v-show="openUserInformation">
+      <div>
         <p>В проектах, не просмотрено</p>
         <p v-for="project in userProjects" :key="project.id">
           {{ project.name }}
@@ -26,8 +26,8 @@
           </span>
         </p>
       </div>
-    </transition>
-  </div>
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -118,16 +118,16 @@ button {
   border: 1px solid #64766a;
 }
 .slide-fade-enter-active {
-  transition: all 0.3s ease-out;
+  transition: all 0.8s ease-out;
 }
 
 .slide-fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
 .slide-fade-enter-from,
 .slide-fade-leave-to {
-  transform: translateY(20px);
+  transform: translateY(-20px);
   opacity: 0;
 }
 </style>
