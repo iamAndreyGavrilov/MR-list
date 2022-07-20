@@ -8,7 +8,9 @@
     </div> -->
     <div class="btn">
       <button v-show="!openUserInformation" @click="openUser">Открыть</button>
-      <button v-show="openUserInformation" @click="openUser">Закрыть</button>
+      <button class="close" v-show="openUserInformation" @click="openUser">
+        Закрыть
+      </button>
     </div>
   </div>
   <transition name="slide-fade">
@@ -111,6 +113,9 @@ button {
   color: #64766a;
   border: 2px solid #64766a;
   cursor: pointer;
+}
+.close {
+  border: 2px solid #eb1616;
 }
 .page {
   display: flex;
